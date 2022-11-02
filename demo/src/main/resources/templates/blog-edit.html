@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование</title>
+</head>
+<body bgcolor="#a9a9a9" th:align="center">
+<h1>Редактирование</h1>
+  <form method="post">
+    <div th:each="el : ${post}" th:object="${post}">
+    <input th:field="*{title}" th:value="${post.title}" type="text" name="title" placeholder="Введите название статьи"><br>
+      <div style="width: 250px; height: 40px; margin: 2px" th:if="*{#fields.hasErrors('title')}" th:errors="*{title}"></div><br>
+
+      <input th:field="*{datavihoda}" th:value="${post.getDatavihoda()}" type="date" name="datavihoda" placeholder="Введите дату выхода"><br>
+      <div style="width: 250px; height: 40px; margin: 2px" th:if="*{#fields.hasErrors('datavihoda')}" th:errors="*{datavihoda}"></div><br>
+
+      <input th:field="*{hours}" th:value="${post.hours}" type="text" name="hours" placeholder="Введите количество часов"><br>
+      <div style="width: 250px; height: 40px; margin: 2px" th:if="*{#fields.hasErrors('hours')}" th:errors="*{hours}"></div><br>
+
+      <input th:field="*{cenastat}" th:value="${post.cenastat}" type="text" name="cenastat" placeholder="Введите цену"><br>
+      <div style="width: 250px; height: 40px; margin: 2px" th:if="*{#fields.hasErrors('cenastat')}" th:errors="*{cenastat}"></div><br>
+
+      <textarea th:field="*{full_text}" th:value="${post.full_text}" type="text" name="full_text" placeholder="Введите текст статьи"></textarea><br>
+      <div style="width: 250px; height: 40px; margin: 2px" th:if="*{#fields.hasErrors('full_text')}" th:errors="*{full_text}"></div><br>
+
+      <p><a><button type="submit">Применить</button></a></p>
+      <p><a onclick="javascript:history.back(-2); return false;">Назад</a></p>
+    </div>
+  </form>
+</body>
+</html>
+<style>
+  html *{
+    font-family: Arial !important;
+  }
+  a{
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #000000;
+    background-color: dimgray;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 70px;
+    padding-right: 70px;
+    margin-top: 100px;
+
+    font-size: 1.2em;
+    text-transform: uppercase;
+    line-height: 1;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  a:hover{
+    color: whitesmoke;
+    border-color: lightsteelblue;
+    box-shadow: 0px 5px 10px 0px rgba(9, 1, 5, 0.5);
+    font-weight: bold;
+  }
+  p{
+    margin-top: 50px;
+  }
+  input{
+    color: black;
+    width: 200px;
+    height: 50px;
+    background-color: silver;
+    border-radius: 20px;
+  }
+  textarea{
+    color: black;
+    width: 200px;
+    height: 50px;
+    background-color: silver;
+    border-radius: 20px;
+  }
+  button{
+    font-size: 15px;
+    background-color: dimgray;
+  }
+</style>

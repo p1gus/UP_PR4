@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление читателей</title>
+</head>
+<body bgcolor="#a9a9a9" th:align="center">
+<h1>Добавить читателя</h1>
+<form th:action="${'/chitateli/add'}" method="post" th:object="${chitateli}">
+    <input th:field="*{name}" type="text" name="name" placeholder="Введите имя читателя"><br>
+    <div style="width: 250px; height: 40px; margin: 2px" th:if="*{#fields.hasErrors('name')}" th:errors="*{name}"></div><br>
+
+    <input th:field="*{fam}" type="text" name="fam" placeholder="Введите фамилию читателя"><br>
+    <div style="width: 250px; height: 40px; margin: 2px" th:if="*{#fields.hasErrors('fam')}" th:errors="*{fam}"></div><br>
+
+    <input th:field="*{denroj}" type="date" name="denroj"><br>
+    <div style="width: 250px; height: 40px; margin: 2px" th:if="*{#fields.hasErrors('denroj')}" th:errors="*{denroj}"></div><br>
+
+    <input th:field="*{kolvostat}" type="number" name="kolvostat" placeholder="Введите количество прочитанных статей"><br>
+    <div style="width: 250px; height: 40px; margin: 2px" th:if="*{#fields.hasErrors('kolvostat')}" th:errors="*{kolvostat}"></div><br>
+
+    <input th:field="*{oklad}" type="text" name="oklad" placeholder="Введите оклад">
+    <div style="width: 250px; height: 40px; margin: 2px" th:if="*{#fields.hasErrors('oklad')}" th:errors="*{oklad}"></div><br>
+
+    <p><a><button class="shadow-text" type="submit">Добавить</button></a></p><br>
+    <p><a class="shadow-text" onclick="javascript:history.back(-2); return false;">Назад</a></p>
+</form>
+</body>
+</html>
+<style>
+    html *{
+        font-family: Arial !important;
+    }
+    a{
+        text-decoration: none;
+        font-size: 15px;
+        color: black;
+
+        border-width: 2px;
+        border-style: solid;
+        border-radius: 20px;
+        border-color: #000000;
+        background-color: dimgray;
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 70px;
+        padding-right: 70px;
+        margin-top: 100px;
+
+        font-size: 1.2em;
+        text-transform: uppercase;
+        line-height: 1;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    a:hover{
+        color: whitesmoke;
+        border-color: lightsteelblue;
+        box-shadow: 0px 5px 10px 0px rgba(9, 1, 5, 0.5);
+        font-weight: bold;
+    }
+    p{
+        margin-top: 50px;
+    }
+    input{
+        color: black;
+        width: 200px;
+        height: 50px;
+        background-color: silver;
+        border-radius: 20px;
+    }
+    textarea{
+        color: black;
+        width: 200px;
+        height: 50px;
+        background-color: silver;
+        border-radius: 20px;
+    }
+    button{
+        font-size: 15px;
+        background-color: dimgray;
+    }
+</style>

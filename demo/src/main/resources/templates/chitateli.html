@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Читатели</title>
+</head>
+<body bgcolor="#a9a9a9" th:align="center">
+<h1>Все читатели</h1>
+
+<div th:each="ooda : ${chitateli}">
+    <h3 th:text="${'Имя: '+ooda.name}"></h3>
+    <h3 th:text="${'Фамилия: '+ooda.fam}"></h3>
+    <h3 th:text="${'Оклад: '+ooda.oklad}"></h3>
+    <h3 th:text="${'Количество прочитанных статей: '+ooda.kolvostat}"></h3>
+    <h3 th:text="${'Дата рождения: '+ooda.denroj}"></h3>
+    <p><a class="shadow-text" th:href=" '/chitateli/' + ${ooda.id}">Подробнее</a></p>
+</div>
+<p><a class="shadow-text" href="/chitateli/filter">Поиск</a></p>
+<p><a class="shadow-text" href="/chitateli/add">Создать</a></p>
+<p><a class="shadow-text" onclick="javascript:history.back(-2); return false;">Назад</a>
+</p>
+</body>
+</html>
+<style>
+    html *{
+        font-family: Arial !important;
+    }
+    a{
+        text-decoration: none;
+        font-size: 15px;
+        color: black;
+
+        border-width: 2px;
+        border-style: solid;
+        border-radius: 20px;
+        border-color: #000000;
+        background-color: dimgray;
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 70px;
+        padding-right: 70px;
+        margin-top: 100px;
+
+        font-size: 1.2em;
+        text-transform: uppercase;
+        line-height: 1;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    a:hover{
+        color: whitesmoke;
+        border-color: lightsteelblue;
+        box-shadow: 0px 5px 10px 0px rgba(9, 1, 5, 0.5);
+        font-weight: bold;
+    }
+    p{
+        margin-top: 50px;
+    }
+    input{
+        color: black;
+        width: 200px;
+        height: 50px;
+        background-color: silver;
+        border-radius: 20px;
+    }
+    textarea{
+        color: black;
+        width: 200px;
+        height: 50px;
+        background-color: silver;
+        border-radius: 20px;
+    }
+    button{
+        font-size: 15px;
+        background-color: dimgray;
+    }
+</style>
